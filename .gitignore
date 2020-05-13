@@ -1,7 +1,15 @@
+# Dependency directories
 node_modules
+
+
 .vscode/
 build/
 temp/
 
 tmp/*
 !tmp/.gitkeep
+
+
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
