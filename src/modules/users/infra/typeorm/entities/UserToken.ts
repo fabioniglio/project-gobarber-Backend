@@ -19,7 +19,7 @@ class UserToken {
   @Column()
   user_id: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ type: 'timestamptz' })
   created_at: Date;
 
   @UpdateDateColumn()
