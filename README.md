@@ -27,7 +27,8 @@ To obtain this project, follow the steps:
 
 2. Run the <code> yarn </code> command at the root of the cloned project folder to download the dependencies.
 3. Run the code <code> docker-compose up -d</code>
-4. Run <code> yarn dev:server </code> at the root of the project folder to start Metro Bundler.
-5. Happy Hacking! 🚀
+4. Run the code <code> yarn typeorm migration:run </code>
+5. Run <code> yarn dev:server </code> at the root of the project folder to start Metro Bundler.
+6. Happy Hacking! 🚀
 
 ⚠️ To send a reset password using AWS SES you will need an AWS accoiunt and generate a Token to add in your dotenv file ⚠️
