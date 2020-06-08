@@ -21,7 +21,7 @@ Ethereal
 
 To obtain this project, follow the steps:
 
-⚠️ In order to use this project you will need the docker installed in your machine! ⚠️
+⚠️ In order to use this project you will need and see how is working you will need to run in your machine the back-end that is on the other repository! ⚠️
 
 1. Clone this repository using<code>git clone</code>.
 
