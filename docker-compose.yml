@@ -2,6 +2,8 @@ version: "3.7"
 
 services:
   postgres:
+    networks:
+      - test
     image: postgres
     ports:
       - 5432:5432
@@ -11,12 +13,20 @@ services:
       POSTGRES_PASSWORD: docker
     container_name: gostack_gobarber
   mongodb:
+    networks:
+      - test
     image: mongo
     ports:
       - 27017:27017
     container_name: mongodb
   redis:
+    networks:
+      - test
     image: redis:alpine
     ports:
       - 6379:6379
     container_name: redis
+networks:
+  test:
+    external:
+      name: nat
