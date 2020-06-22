@@ -1,11 +1,14 @@
 import AppError from '@shared/errors/AppError';
 
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
+
 import FakeStorageProvider from '@shared/container/providers/StorageProviders/fakes/FakeStorageProvider';
 import FakesUsersRepository from '../repositories/fakes/FakesUsersRepository';
 import UpdateUserAvatarService from './UpdateUserAvatarService';
 
 let fakeUsersRepository: FakesUsersRepository;
 let fakeStorageProvider: FakeStorageProvider;
+let fakeCacheProvider: FakeCacheProvider;
 let updateAvatar: UpdateUserAvatarService;
 
 describe('UpdateUserAvatar', () => {
@@ -13,10 +16,12 @@ describe('UpdateUserAvatar', () => {
     fakeUsersRepository = new FakesUsersRepository();
 
     fakeStorageProvider = new FakeStorageProvider();
+    fakeCacheProvider = new FakeCacheProvider();
 
     updateAvatar = new UpdateUserAvatarService(
       fakeUsersRepository,
       fakeStorageProvider,
+      fakeCacheProvider,
     );
   });
   it('should be able to update a user avatar', async () => {

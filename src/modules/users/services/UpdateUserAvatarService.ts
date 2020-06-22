@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
-
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import IStorageProvider from '@shared/container/providers/StorageProviders/models/IStorageProvider';
 import IUsersRepository from '../repositories/IUserRepository';
 
@@ -19,6 +19,9 @@ class UpdateUserAvatarService {
 
     @inject('StorageProvider')
     private storageProvider: IStorageProvider,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
@@ -31,10 +34,13 @@ class UpdateUserAvatarService {
     if (user.avatar) {
       await this.storageProvider.deleteFile(user.avatar);
     }
+
     const fileName = await this.storageProvider.saveFile(avatarFilename);
     user.avatar = fileName;
 
     await this.usersRepository.save(user);
+
+    await this.cacheProvider.invalidate('providers-list');
 
     return user;
   }
