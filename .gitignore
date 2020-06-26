@@ -4,7 +4,10 @@ node_modules
 
 #enviroment
 .env
+ormconfig.json
 
+#build
+dist
 
 .vscode/
 build/
