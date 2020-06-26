@@ -20,7 +20,7 @@ export default class ProviderAppointmentsController {
       month: Number(month),
       year: Number(year),
     });
-    console.log(appointments);
+
     return response.json(classToClass(appointments));
   }
 }
